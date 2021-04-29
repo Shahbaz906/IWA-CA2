@@ -1,10 +1,13 @@
 const express = require('express');
-const app = express();
 const mongoose = require ('mongoose');
 const bodyParser = require('body-parser');
+axios = require('axios');
 require('dotenv/config');
 
-app.use(bodyParser.json());
+
+const app = express();
+
+app.use(bodyParser.json())
 
 // import
 const menuRoute = require('./routes/menu');
@@ -14,7 +17,10 @@ app.use('/menu', menuRoute);
 
 //ROUTES
 app.get('/menu',(req, res)=> {
-    res.send('we are in Menu');
+    res.redirect('we are in Menu');
+});
+app.post('/menu', (req, res) =>{
+    res.json({result: 'post was sent'});
 });
 
 
