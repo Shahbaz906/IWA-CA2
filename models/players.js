@@ -1,18 +1,15 @@
-const mongoose = require('MONGOOSE');
+const mongoose = require('mongoose');
 
 
-const MenuSchema = mongoose.Schema({
+const playersSchema = new mongoose.Schema({
 
-   title:{
-        name: String,
+   player:{
+        type: String,
         required: true
     },
-    name:{
-        name: String,
-        required: true
-    },
+  
 
-   ranking:{
+   Ranking:{
         type: Number,
         required: true
     },
@@ -20,7 +17,7 @@ const MenuSchema = mongoose.Schema({
      country:{
         type: String,
         required: true
-    },
+    }
 
     
 

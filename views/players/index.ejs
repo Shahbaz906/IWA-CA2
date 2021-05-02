@@ -26,11 +26,18 @@
     <th>Rating</th>
     <th>Country</th>
   </tr>
+
+
+<% players.forEach(play => { %>
   <tr>
-    <td>BaBar Azam</td>
-    <td>865</td>
-    <td>Pakistan</td>
+    <td>       <%= play.player  %>            </td>
+    <td>  <%= play.Ranking  %>            </td>
+    <td>  <%= play.country  %>            </td>
   </tr>
+
+      <% }) %>
+
+  <!--  
   <tr>
     <td>Virat kohli</td>
     <td>857</td>
@@ -61,6 +68,7 @@
     <td>778</td>
     <td>Pakistan</td>
   </tr>
+-->
             </table>
             </div>
 
