@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 axios = require('axios');
 require('dotenv/config');
 
-
+var port = process.env.PORT || 8000;
 const app = express();
 
 app.use(bodyParser.json())
@@ -12,12 +12,24 @@ app.use(bodyParser.json())
 // import
 const playersRoute = require('./routes/players');
 
+app.set('view engine', 'ejs')
 //middleware
 app.use('/players', playersRoute);
 
 //ROUTES
+const playersRouter = require('./routes/players')
+app.use(express.static('view/players'))
+
+
 app.get('/players',(req, res)=> {
-    res.redirect('we are at players');
+    const players =[{
+        title: 'Cricket Players List 2021',
+        name:'anyone',
+        ranking: 'any',
+        country: 'any'
+
+    }]
+    res.redirect('players/index', {players: players});
 });
 app.post('/players', (req, res) =>{
     res.json({result: 'post was sent'});

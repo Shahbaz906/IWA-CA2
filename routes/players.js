@@ -1,11 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+//const players = require('../models/players')
+const router = express.Router()
 
 
 
 
 router.get('/', (req, res) =>{
-res.send('We are players');
+res.render('players/new_player', { players: new player()});
 });
 
 router.post('/', (req, res) =>{

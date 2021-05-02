@@ -3,6 +3,10 @@ const mongoose = require('MONGOOSE');
 
 const MenuSchema = mongoose.Schema({
 
+   title:{
+        name: String,
+        required: true
+    },
     name:{
         name: String,
         required: true
