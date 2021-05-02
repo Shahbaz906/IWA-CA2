@@ -60,4 +60,4 @@ db.on('error', (error) => console.error(error))
 
 //middleware
 app.use('/players', playersRoute);
-app.listen(9000);
+app.listen(8000);

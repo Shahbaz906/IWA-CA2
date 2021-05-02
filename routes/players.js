@@ -11,24 +11,25 @@ res.render('players/new_player')
 })
 
 router.get('/:id', (req,res)=> {
-    const play = Play.findByid(req.params.id)
-   if (play == null ) res.redirect 
+    const players = Players.findByid(req.params.id)
+   if (players == null ) res.redirect 
 res.send(params.id)
 } )
 
 router.post('/', async (req, res)=> {
-let play = new Play({
+const player = await Players({
      player: req.body.player,
   Ranking: req.body.Ranking,
    country: req.body. country
 
 })
+
 try {
-part = await part.save();
-res.redirect(`/players/${play.id}`)
+const new_player = await players.save();
+res.redirect(`/players/${players.id}`)
 } catch (e) {
     console.log(e)
-res.render('players/new_player', {play : play})
+res.render('players/new_player', {players : players})
 }
 
 })
