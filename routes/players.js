@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) =>{
-res.send('We are on menu');
+res.send('We are players');
 });
 
 router.post('/', (req, res) =>{

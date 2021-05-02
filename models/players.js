@@ -3,28 +3,25 @@ const mongoose = require('MONGOOSE');
 
 const MenuSchema = mongoose.Schema({
 
-    section:{
+    name:{
         name: String,
         required: true
     },
 
-     entree:{
+   ranking:{
+        type: Number,
+        required: true
+    },
+
+     country:{
         type: String,
         required: true
     },
 
-     item:{
-        type: String,
-        required: true
-    },
-
-    Price:{
-type: Number,
-required: true
-}
+    
 
 });
 
 
 
-module.exports = mongoose.model('Menu', MenuSchema);
+module.exports = mongoose.model('players', playersSchema);

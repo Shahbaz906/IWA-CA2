@@ -10,16 +10,16 @@ const app = express();
 app.use(bodyParser.json())
 
 // import
-const menuRoute = require('./routes/menu');
+const playersRoute = require('./routes/players');
 
 //middleware
-app.use('/menu', menuRoute);
+app.use('/players', playersRoute);
 
 //ROUTES
-app.get('/menu',(req, res)=> {
-    res.redirect('we are in Menu');
+app.get('/players',(req, res)=> {
+    res.redirect('we are at players');
 });
-app.post('/menu', (req, res) =>{
+app.post('/players', (req, res) =>{
     res.json({result: 'post was sent'});
 });
 
