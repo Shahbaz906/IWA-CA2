@@ -18,11 +18,11 @@ app.use('/players', playersRoute);
 
 //ROUTES
 const playersRouter = require('./routes/players')
-app.use(express.static('view/players'))
+app.use(express.static('views/players'))
 
 
-app.get('/players',(req, res)=> {
-    const players =[{
+app.get('/',(req, res)=> {
+    const players = [{
         title: 'Cricket Players List 2021',
         name:'anyone',
         ranking: 'any',
@@ -31,14 +31,12 @@ app.get('/players',(req, res)=> {
     }]
     res.redirect('players/index', {players: players});
 });
-app.post('/players', (req, res) =>{
-    res.json({result: 'post was sent'});
-});
+
 
 
 // mongodb connection
-mongoose.connect( process.env.DB_CONNECTION, { useUnifiedTopology: true },
-() => console.log('connected to database'));
+//mongoose.connect( process.env.DB_CONNECTION, { useUnifiedTopology: true },
+//() => console.log('connected to database'));
 
 
 

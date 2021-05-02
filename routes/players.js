@@ -5,12 +5,12 @@ const router = express.Router()
 
 
 
-router.get('/', (req, res) =>{
-res.render('players/new_player', { players: new player()});
-});
+//router.get('/', (req, res) =>{
+//res.render('players/new_player', { players: new player()});
+//});
 
-router.post('/', (req, res) =>{
-    res.send('post is working');
-});
+//router.post('/', (req, res) =>{
+ //   res.send('post is working');
+//});
 
 module.exports = router;
