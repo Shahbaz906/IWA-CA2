@@ -29,6 +29,8 @@ const playersRouter = require('./routes/players')
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false}))
 app.use(express.static('views/players'))
+app.use(express.static('players/images'))
+app.use(express.json())
 
 
 app.get('/', (req, res)=> {
