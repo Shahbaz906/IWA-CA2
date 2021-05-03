@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require ('mongoose')
 const bodyParser = require('body-parser');
 const Player = require('./models/players')
-//require('dotenv/config')
+require('dotenv/config')
 
 var port = process.env.PORT || 8000;
 
