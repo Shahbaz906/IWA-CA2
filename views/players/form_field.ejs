@@ -1,34 +1,19 @@
 <div class="form-group">
-  <label for="Manufacturer">Manufacturer</label>
+    <label for="player">Player</label>
+    <input required value= "<%= player.player %>" type="text" name="player" id="player" class="form-control">
 
-
-  <input  required value="<%=  Cricket Players List 2021" type="text" pattern="[A-zÀ-ž\s]+"  name="Cricket" id="Cricket" maxlength="25" class="form-control">
 </div>
-
-
 <div class="form-group">
-  <label for="Model">Model</label>
+    <label for="ranking">Ranking</label>
+    <input required type="number" name="ranking" id="ranking" class="form-control">"<%= player.ranking %>"
 
-  <input  required value="<%= Players.Model %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Model" id="Model"   maxlength="20" class="form-control">
+    
 </div>
-
-
 <div class="form-group">
-  <label for="Players">Part Name </label>
-
-  <input  required value="<%= Players.Players %>" type="text" pattern="[A-z0-9À-ž\s]+" name="Part" id="Players"  maxlength="25"  class="form-control">
-</div>
- 
-<div class="form-group">
-  <label for="Price">Price</label>
-  <input  required value="<%= part.Price %>" type="number" step="0.01" name="Price" id="Price" onKeyPress="if(this.value.length>10) return false;" class="form-control">
+    <label for="country">Country</label>
+    <input required type="text" name="country" id="country" class="form-control">"<%= player.country %>"
+    
 </div>
 
-
-
-
- 
-<a href="/#products" class="btn btn-danger" >Cancel</a>
-
-
- <button class="btn btn-primary"  type="submit" style="background-color: #f3bf3a;"> Save  </button>
+<a href="/" class="btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>

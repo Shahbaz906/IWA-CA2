@@ -5,7 +5,7 @@ axios = require('axios');
 require('dotenv/config');
 const app = express();
 
-const Play = require('./models/players')
+const Players = require('./models/players')
 
 
 var port = process.env.PORT || 8000;
@@ -36,14 +36,14 @@ app.use(express.json())
 
 
 app.get('/', async (req,res)=> {
-   /*const players = [{
+  /* const players = [{
         //title: 'Cricket Players List 2021', ranking: 'any'
 
         player:'BaBar Azam',
         rating: '865',
         country: 'Pakistan '
 
-    }]     */
+    }] /*/    
     const players = await Play.find();
     res.render('players/index', {players: players})
 })

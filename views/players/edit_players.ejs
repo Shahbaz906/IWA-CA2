@@ -1,23 +1,20 @@
-<!--      html code used to edit a car part               -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+<!--      html code used to edit               -->
+<html>
+    <head>
+        <title>Player perfomance</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        
+           
+            <div class="cricket">
+            <h1>Edit Cricket Players List 2021</h1>
 
-  <title>Cricket Players List 2021</title>
-</head>
-<body>
-  <div class="container">
-   <h3 >  Edit players list   </h3>
-
-    <form action="/players/<%= players.id %>?_omethod=PUT" method="POST"> 
-  <%- include('form_field') %>  
-
-    </form>
-  </div>
-
-  
-</body>
+            <form action="/players/<%= players.id %>?_omethod=PUT" method="POST">
+            <%- include('table_fields') %>
+            </form>
+            </div>
+</body> 
 </html>
+  
