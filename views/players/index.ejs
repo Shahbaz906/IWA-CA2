@@ -25,28 +25,30 @@
     <th>Player</th>
     <th>Ranking</th>
     <th>Country</th>
+       <th>  Button    </th>
+
   </tr>
 
- <% Players.forEach(player => { %>
+ <% players.forEach(player => { %>
                         <tr>
                             
-                            <td> <%= Cricket Players List 2021 %> </td>
-                            <td> <%= Players.player %> </td>
-                            <td>  <%= Players.Ranking %>  </td>
-                            <td> <%= Players.Country %> </td>
+                            <td> <%= player.player %>  </td>
+                            <td>   <%= player.Ranking %> </td>
+                            <td>  <%= player.country %> </td>
+                     
                 
                             <td>
                               
    
-                                  <a href="/players/edit/<%= player.id %>"  >
-                                <button class="btn btn-success" style="margin-left: 5px;" type="submit"><i class="fa fa-pencil" style="font-size: 15px;">
-                                </i></button>
+                                  <a href="/players/edit/<%= player.id %>" class="d-inline"  >
+                                <button  type="submit"> Edit
+                                </button>
                             </a>
                        
  
-                                <form action="/players/<%= player.id %>?_omethod=DELETE" method="POST" class="d-inline"  >
-                                <button class="btn btn-danger" style="margin-left: 5px;" type="submit"><i class="btn btn-danger">Delete
-                                  </i></button>
+                                <form action="/players/<%= player.id %>?_method=DELETE" method="POST" class="d-inline"  >
+                                <button type="submit">Delete
+                                  </button>
                                </form>
                             </td>
                         </tr>
