@@ -1,56 +1,31 @@
-const express = require('express');
-const mongoose = require ('mongoose');
+const express = require('express')
+const app = express()
+const mongoose = require ('mongoose')
 const bodyParser = require('body-parser');
-axios = require('axios');
-require('dotenv/config');
-const app = express();
-
-const Players = require('./models/players')
-
+const Player = require('./models/players')
+//require('dotenv/config')
 
 var port = process.env.PORT || 8000;
 
 
-app.use(bodyParser.json())
+const playerRoute = require('./routes/players')
+const methodOverride = require('method-override')
 
 
-
-
-
-// import
-const playersRoute = require('./routes/players');
-
-
-
-
-
-
-//ROUTES
-const playersRouter = require('./routes/players')
 
 app.set('view engine', 'ejs')
+
+app.use(methodOverride('_method'))
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false}))
 app.use(express.static('views/players'))
 
-app.use(express.json())
-
-
-app.get('/', async (req,res)=> {
-  /* const players = [{
-        //title: 'Cricket Players List 2021', ranking: 'any'
-
-        player:'BaBar Azam',
-        rating: '865',
-        country: 'Pakistan '
-
-    }] /*/    
-    const players = await Play.find();
-    res.render('players/index', {players: players})
+app.get('/', async (req, res) =>{
+    const players = await playerRoute.propfind().sort({ createdAt: 'desc'})
+    res.render('players/index',{ players: players})
 })
 
-
-
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true, }) 
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true,}) 
 
 const db = mongoose.connection
 
@@ -59,5 +34,5 @@ db.on('error', (error) => console.error(error))
  
 
 //middleware
-app.use('/players', playersRoute);
+app.use('/players', playerRoute);
 app.listen(8000);
