@@ -40,14 +40,14 @@
                             <td>
                               
    
-                                  <a href="/players/edit/<%= player.id %>" class="d-inline"  >
+                                  <a href="/players/edit/<%= player.id %>"  >
                                 <button  type="submit"> Edit
                                 </button>
                             </a>
                        
  
                                 <form action="/players/<%= player.id %>?_method=DELETE" method="POST" class="d-inline"  >
-                                <button type="submit">Delete
+                                <button class="btn btn-danger" style="margin-left: 5px;" type="submit">Delete
                                   </button>
                                </form>
                             </td>
