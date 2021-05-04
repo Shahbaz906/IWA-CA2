@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Player = require('../models/players')
 
-router.get('/new_player', (req, res) => {
-res.render('players/new_player',{ player: new player})
+router.get('/new', (req, res) => {
+res.render('players/new',{ player: new player})
 
 
 })
