@@ -9,14 +9,15 @@ res.render('players/new',{ player: new player})
 })
 router.get('/edit/:id', async (req, res) => {
     const player = await Player.findById(req.params.id)
-res.render('players/edit',{ player: new player})
+res.render('players/edit',{ player: player})
 
 
 })
 
 
 router.get('/:id', async (req,res)=> {
-    const player = await Player.findByIdOne(req.params.id)
+    const player = await Player.findById(req.params.id)
+    
     if (player == null) res.redirect('/')
    res.render('players/show',{player: player})
 } )
