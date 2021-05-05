@@ -4,7 +4,7 @@ const mongoose = require ('mongoose')
 const bodyParser = require('body-parser');
 const Player = require('./models/players')
 require('dotenv/config')
-//const ejs = require('ejs')
+const ejs = require('ejs')
 
 var port = process.env.PORT || 8000;
 

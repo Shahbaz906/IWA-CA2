@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const Player = require('../models/players')
+const Players = require('../models/players')
 
 router.get('/new', (req, res) => {
-res.render('players/new',{ player: new player})
+res.render('players/new',{ player: new Player()})
 
 
 })
@@ -16,11 +16,21 @@ res.render('players/edit',{ player: player})
 
 
 router.get('/:id', async (req,res)=> {
-    const player = await Player.findById(req.params.id)
+    const player = await Player.findById()
     
     if (player == null) res.redirect('/')
    res.render('players/show',{player: player})
 } )
+
+router.get('/:id', async (req, res) =>{
+    const player = await Player.findById()
+
+    if (player == null) {
+        return res.status(404).json({message: 'Can not find the player by id'})
+
+    }
+    res.redirect('/') //redirect to homepage
+})
 
 
 
@@ -28,6 +38,7 @@ router.post('/', async (req, res, next)=> {
   req.player = new Player() 
 next()
 }, savePlayerAndRedirect('new'))
+
 router.put('/:id', async (req, res, next) =>{
     req.player = await Player.finfById(req.params.id)
     next()
@@ -50,11 +61,13 @@ function savePlayerAndRedirect(path) {
     try {
       player = await player.save() 
 
-     res.redirect(`/`)
+     res.redirect(`/players`)
     } catch (e) {
+        res.render('articles/${path}', {article: article}
  
- return res.status(400).json({message: 'Validation fail for the request'}) 
-  }
+  
+        )
+}
 }
 }
 
