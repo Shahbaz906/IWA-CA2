@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const Players = require('../models/players')
+const player = require('../models/players')
 
 router.get('/new', (req, res) => {
-res.render('players/new',{ player: new Player()})
+res.render('players/new',{ player: new player()})
 
 
 })
@@ -16,14 +16,14 @@ res.render('players/edit',{ player: player})
 
 
 router.get('/:id', async (req,res)=> {
-    const player = await Player.findById()
+    const player = await player.findById()
     
     if (player == null) res.redirect('/')
    res.render('players/show',{player: player})
 } )
 
 router.get('/:id', async (req, res) =>{
-    const player = await Player.findById()
+    const player = await player.findById()
 
     if (player == null) {
         return res.status(404).json({message: 'Can not find the player by id'})
@@ -35,19 +35,19 @@ router.get('/:id', async (req, res) =>{
 
 
 router.post('/', async (req, res, next)=> {
-  req.player = new Player() 
+  req.player = new player() 
 next()
 }, savePlayerAndRedirect('new'))
 
 router.put('/:id', async (req, res, next) =>{
-    req.player = await Player.finfById(req.params.id)
+    req.player = await player.finfById(req.params.id)
     next()
 }, savePlayerAndRedirect('edit'))
 
 
 
 router.delete('/:id', async (req, res) =>{
-    await Player.findByIdAndDelete(req.params.id)
+    await player.findByIdAndDelete(req.params.id)
     res.redirect('/')
 })
 
