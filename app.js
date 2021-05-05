@@ -6,7 +6,7 @@ const player = require('./models/players')
 require('dotenv/config')
 const ejs = require('ejs')
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8000; // port for heroku support
 
 app.use(bodyParser.json());
 const playerRoute = require('./routes/players')
@@ -14,17 +14,17 @@ const methodOverride = require('method-override')
 
 
 
-app.set('view engine', 'ejs')
-app.use(express.urlencoded({ extended: false}))
+app.set('view engine', 'ejs') // for my static content 
+app.use(express.urlencoded({ extended: false}))// middlewear 
 
 
 
 app.use(methodOverride('_method'))
 
 
-app.use(express.static('views/players'))
+app.use(express.static('views/players'))// for public view 
 
-app.get('/', async (req, res) =>{
+app.get('/', async (req, res) =>{   // making a request 
     const players = await player.find()
     res.render('players/index',{ players: players})
 })
@@ -43,4 +43,4 @@ app.use('/players', playerRoute);
 //app.listen(8000);
 app.listen(port, function(error){
     console.log('server is running on port: ' + port);
-});
+});// port for server
