@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require ('mongoose')
 const bodyParser = require('body-parser');
-const Player = require('./models/players')
+const player = require('./models/players')
 require('dotenv/config')
 const ejs = require('ejs')
 
@@ -25,7 +25,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('views/players'))
 
 app.get('/', async (req, res) =>{
-    const players = await Player.find()
+    const players = await player.find()
     res.render('players/index',{ players: players})
 })
 
